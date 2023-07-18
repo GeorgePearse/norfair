@@ -1,3 +1,4 @@
+import uuid
 from logging import warning
 from typing import Any, Callable, Hashable, List, Optional, Sequence, Tuple, Union
 
@@ -428,8 +429,8 @@ class _TrackedObjectFactory:
     def get_ids(self) -> Tuple[int, int]:
         self.count += 1
         _TrackedObjectFactory.global_count += 1
-        return self.count, _TrackedObjectFactory.global_count
-
+        # EDITTED HERE
+        return str(uuid.uuid4()), _TrackedObjectFactory.global_count
 
 class TrackedObject:
     """
